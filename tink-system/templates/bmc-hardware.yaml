@@ -1,0 +1,15 @@
+{{- range $host := .Values.stack.hosts }}
+---
+apiVersion: bmc.tinkerbell.org/v1alpha1
+kind: Machine
+metadata:
+  name: {{ $host.hostname }}-bmc
+spec:
+  connection:
+    host: {{ $host.bmc }}
+    port: 623
+    authSecretRef:
+      name: {{ $host.bmc_secret }}
+      namespace: tink-system
+    insecureTLS: true
+{{- end }}

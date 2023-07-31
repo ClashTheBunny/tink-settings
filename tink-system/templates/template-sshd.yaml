@@ -1,0 +1,23 @@
+---
+apiVersion: "tinkerbell.org/v1alpha1"
+kind: Template
+metadata:
+  name: start-sshd
+spec:
+  data: |
+    version: "0.1"
+    name: start-sshd
+    global_timeout: 18000000000000000
+    tasks:
+      - name: "start-sshd"
+        worker: {{ `{{.device_1 | quote}}` }}
+        volumes:
+          - /dev:/dev
+          - /dev/console:/dev/console
+          - /lib/firmware:/lib/firmware:ro
+        actions:
+          - name: "start-sshd"
+            image: lscr.io/linuxserver/openssh-server:latest
+            timeout: 18000000000000000
+            environment:
+              PUBLIC_KEY: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2Tdw70nlJ4mjS1mSnoK1zNBFAzHJOCLzW0L4mH+PQiM1dTzMeMNcqMgBN70Nj2oBsORU0nnC9FF/vx1HdxM+OPCPK+nJd9Hqu1ftQrcy4giQr5PSw6F4ZoMulIw6Sdf16eETzGNLVvSGdrXvS6ygyBZRf4d7bhYkE+S7CX/VtlT8A5SIFHhXxzW5mujyn64BtEVJTmu8/3JCF3LL5192L5VB4gS+pKQfS++wD/ySnFGcd3MygWFFjYAKS9N+tTejKdXpxR/KHcngKFYBSIazIquY3jkhs82NJf3ryVX5w23UO4FFiq2Mn+wqnzbFXJwbuEy07BBVZE2pHuIDrV6RlgfR78lxxnA82qvE/ZA1F0koZOP3DbamGRPSVASvIOzHwql1P2YZ36vQC0it6V4aLh+JDNzJxHIx5d2foBibg+tCKh4ReCTPkaR9+PdSZAAgTXlSiQAaB+UVnPbkxCa0/FV7km8DYVzolonKdv7UX9ijzj0qHL44sGF2MkAw/6e2s/qlrV+2pBADT/Q1sxG5R+5AGmk0hW0sW4yml3Gjat40D8Ts4ibyNU7o+C9Y/qI5LQV2sovAemsFqcnKj8GBp6AW9r83muSjoqAdVzWWt4xYEa0Jg3YwcZNIz/s254Rqe5SicYAK8R+oKhi9ywjhKvGp/6H86upPH0Rke/o9zKw== randall@Randalls-MBP.haun.ch"

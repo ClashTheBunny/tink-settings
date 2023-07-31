@@ -1,0 +1,37 @@
+{{- range $host := .Values.stack.hosts }}
+---
+apiVersion: "tinkerbell.org/v1alpha1"
+kind: Hardware
+metadata:
+  name: {{ $host.hostname }}
+spec:
+  disks:
+    - device: /dev/sda
+  metadata:
+    facility:
+      facility_code: sandbox
+    instance:
+      hostname: {{ $host.hostname | quote }}
+      id: {{ $host.mac | quote }}
+      operating_system:
+        distro: "debian"
+        os_slug: "debian-sid"
+        version: "sid"
+  interfaces:
+    - dhcp:
+        arch: x86_64
+        hostname: {{ $host.hostname }}
+        ip:
+          address: {{ $host.ip }}
+          gateway: 192.168.32.1
+          netmask: 255.255.255.0
+        lease_time: 86400
+        mac: {{ $host.mac }}
+        name_servers:
+          - 1.1.1.1
+          - 8.8.8.8
+        uefi: {{ $host.uefi | default false }}
+      netboot:
+        allowPXE: true
+        allowWorkflow: true
+{{- end }}

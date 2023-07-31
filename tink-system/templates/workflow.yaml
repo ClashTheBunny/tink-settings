@@ -1,0 +1,40 @@
+# apiVersion: "tinkerbell.org/v1alpha1"
+# kind: Workflow
+# metadata:
+#   name: start-ssh-super0
+# spec:
+#   templateRef: start-sshd
+#   hardwareRef: super0
+#   hardwareMap:
+#     device_1: 00:25:90:a7:f9:9e
+# ---
+# apiVersion: "tinkerbell.org/v1alpha1"
+# kind: Workflow
+# metadata:
+#   name: start-ssh-super1
+# spec:
+#   templateRef: start-sshd
+#   hardwareRef: super1
+#   hardwareMap:
+#     device_1: 00:25:90:51:d5:0c
+# ---
+# apiVersion: "tinkerbell.org/v1alpha1"
+# kind: Workflow
+# metadata:
+#   name: start-ssh-557yx12
+# spec:
+#   templateRef: start-sshd
+#   hardwareRef: 557yx12.haun.ch
+#   hardwareMap:
+#     device_1: ec:f4:bb:c5:1e:fd
+---
+apiVersion: tinkerbell.org/v1alpha1
+kind: Workflow
+metadata:
+  name: install-debian-sid-super0
+  namespace: tink-system
+spec:
+  hardwareMap:
+    device_1: 00:25:90:a7:f9:9e
+  hardwareRef: super0
+  templateRef: debian-sid
