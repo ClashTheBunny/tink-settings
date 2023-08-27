@@ -25,14 +25,14 @@ appVersion: "0.3.0"
 
 dependencies:
   - name: tink
-    version: "0.2.1"
+    version: "0.2.2"
     repository: "file://../../vendor/tinkerbell-charts/tinkerbell/tink"
   - name: boots
-    version: "0.2.1"
+    version: "0.2.2"
     repository: "file://../../vendor/tinkerbell-charts/tinkerbell/boots"
   - name: rufio
-    version: "0.2.4"
+    version: "0.2.5"
     repository: "file://../../vendor/tinkerbell-charts/tinkerbell/rufio"
   - name: hegel
-    version: "0.3.1"
+    version: "0.3.2"
     repository: "file://../../vendor/tinkerbell-charts/tinkerbell/hegel"

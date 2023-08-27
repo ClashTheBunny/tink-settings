@@ -39,8 +39,8 @@ stack:
     debian:
       - name: bookworm
         url: "https://cloud.debian.org/images/cloud/bookworm/daily/latest/debian-12-generic-amd64-daily.qcow2"
-      # - name: trixie
-      #   url: "https://cloud.debian.org/images/cloud/trixie/daily/latest/debian-12-generic-amd64-daily.qcow2"
+      - name: trixie
+        url: "https://cloud.debian.org/images/cloud/trixie/daily/latest/debian-13-generic-amd64-daily.qcow2"
       - name: sid
         url: "https://cloud.debian.org/images/cloud/sid/daily/latest/debian-sid-generic-amd64-daily.qcow2"
   hosts:
